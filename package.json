@@ -1,0 +1,12 @@
+{
+
+  "scripts": {
+
+    "mediator": "ts-node src/behavioral/mediator/index.ts",
+    "observer": "ts-node src/behavioral/observer/index.ts",
+    "factory": "ts-node src/creational/factory-method/index.ts",
+    "builder": "ts-node src/creational/builder/index.ts"
+      
+  }
+}
+
