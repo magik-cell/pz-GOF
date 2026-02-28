@@ -1,25 +1,25 @@
-import { ConcreteSubject } from './Subject';
-import { ConcreteObserver } from './Observer';
+// When running under ts-node/CommonJS we import the TypeScript files
+// directly; including a `.js` extension forces the loader to look for a
+// compiled JavaScript file that doesn't exist.  Drop the extension so the
+// module resolution works transparently in both development and after
+// compilation.
+import { ConcreteSubject } from "./ConcreteSubject";
+import { ConcreteObserver } from "./ConcreteObserver";
 
-console.log('--- Observer pattern demo (observer/index.ts) ---');
+export function demonstrateObserver(): void {
+    const subject = new ConcreteSubject();
 
-// 1. Створюємо об'єкт, за яким будемо спостерігати (Суб'єкт)
-const subject = new ConcreteSubject();
+    const obs1 = new ConcreteObserver("Спостерігач 1");
+    const obs2 = new ConcreteObserver("Спостерігач 2");
 
-// 2. Створюємо спостерігачів
-const obs1 = new ConcreteObserver('Observer1');
-const obs2 = new ConcreteObserver('Observer2');
+    subject.attach(obs1);
+    subject.attach(obs2);
 
-// 3. Підписуємо їх на зміни стану суб'єкта
-subject.attach(obs1);
-subject.attach(obs2);
+    subject.setState(1); // Тепер помилки не буде
+    subject.setState(2);
 
-// 4. Змінюємо стан — обидва спостерігачі отримають повідомлення
-subject.setState(1);
-subject.setState(2);
+    subject.detach(obs2);
+    subject.setState(3);
+}
 
-// 5. Відписуємо одного спостерігача
-subject.detach(obs1);
-
-// 6. Змінюємо стан знову — тепер зреагує лише другий спостерігач
-subject.setState(3);
+demonstrateObserver();

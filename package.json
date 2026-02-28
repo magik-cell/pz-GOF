@@ -1,12 +1,19 @@
 {
-
+  "name": "pz-gof",
+  "version": "1.0.0",
+  "description": "Design Patterns Project",
+  "type": "commonjs",
   "scripts": {
-
     "mediator": "ts-node src/behavioral/mediator/index.ts",
     "observer": "ts-node src/behavioral/observer/index.ts",
     "factory": "ts-node src/creational/factory-method/index.ts",
     "builder": "ts-node src/creational/builder/index.ts"
-      
+  },
+  "dependencies": {
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0"
   }
 }
-

@@ -1,11 +1,5 @@
 import { Observer } from './Observer';
-
-// Інтерфейс для Суб'єкта (те, за чим спостерігають)
-export interface Subject {
-    attach(observer: Observer): void;
-    detach(observer: Observer): void;
-    notify(): void;
-}
+import { Subject } from './Subject';
 
 export class ConcreteSubject implements Subject {
     // Список спостерігачів
